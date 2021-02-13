@@ -1,0 +1,6 @@
+com/example/tienda/GameServiceMockTest.java
+ com.example.tienda.GameServiceMockTest
+com/example/tienda/GamesRepositoryMockTest.java
+ com.example.tienda.GamesRepositoryMockTest
+com/example/tienda/TiendaApplicationTests.java
+ com.example.tienda.TiendaApplicationTests

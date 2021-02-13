@@ -1,0 +1,16 @@
+com/example/tienda/service/GamesService.java
+ com.example.tienda.service.GamesService
+com/example/tienda/entity/Categorias.java
+ com.example.tienda.entity.Categorias
+ com.example.tienda.entity.Categorias$CategoriasBuilder
+com/example/tienda/entity/Games.java
+ com.example.tienda.entity.Games
+ com.example.tienda.entity.Games$GamesBuilder
+com/example/tienda/repository/GamesRespository.java
+ com.example.tienda.repository.GamesRespository
+com/example/tienda/TiendaApplication.java
+ com.example.tienda.TiendaApplication
+com/example/tienda/service/GamesServiceImpl.java
+ com.example.tienda.service.GamesServiceImpl
+com/example/tienda/contoller/GamesController.java
+ com.example.tienda.contoller.GamesController
