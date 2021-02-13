@@ -2,7 +2,7 @@ package com.example.tienda;
 
 import com.example.tienda.entity.Categorias;
 import com.example.tienda.entity.Games;
-import com.example.tienda.repository.GamesRespository;
+import com.example.tienda.repository.GamesRepository;
 import com.example.tienda.service.GamesService;
 import com.example.tienda.service.GamesServiceImpl;
 import org.assertj.core.api.Assertions;
@@ -19,14 +19,14 @@ import java.util.Optional;
 public class GameServiceMockTest {
 
     @Mock
-    private GamesRespository gamesRespository;
+    private GamesRepository gamesRepository;
 
     private GamesService gamesService;
 
     @BeforeEach
     public void  setup(){
         MockitoAnnotations.openMocks(this);
-        gamesService = new GamesServiceImpl( gamesRespository );
+        gamesService = new GamesServiceImpl(gamesRepository);
         Games fifa20 = Games.builder()
                 .games_id(1L)
                 .game_nombre("FIFA 20")
@@ -37,9 +37,9 @@ public class GameServiceMockTest {
                 .categoria(Categorias.builder().categoria_id(1L).build())
                 .build();
 
-        Mockito.when(gamesRespository.findById(1L))
+        Mockito.when(gamesRepository.findById(1L))
                 .thenReturn(Optional.of(fifa20));
-        Mockito.when(gamesRespository.save(fifa20)).thenReturn(fifa20);
+        Mockito.when(gamesRepository.save(fifa20)).thenReturn(fifa20);
     }
 
     @Test

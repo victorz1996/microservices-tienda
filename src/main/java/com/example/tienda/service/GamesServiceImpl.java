@@ -2,7 +2,7 @@ package com.example.tienda.service;
 
 import com.example.tienda.entity.Categorias;
 import com.example.tienda.entity.Games;
-import com.example.tienda.repository.GamesRespository;
+import com.example.tienda.repository.GamesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,21 +13,21 @@ import java.util.List;
 public class GamesServiceImpl implements GamesService{
 
 
-    private final GamesRespository gamesRespository;
+    private final GamesRepository gamesRepository;
 
     @Override
     public List<Games> listAllGames() {
-        return gamesRespository.findAll();
+        return gamesRepository.findAll();
     }
 
     @Override
     public Games getGame(Long id) {
-        return gamesRespository.findById(id).orElse(null);
+        return gamesRepository.findById(id).orElse(null);
     }
 
     @Override
     public Games createGame(Games game) {
-        return gamesRespository.save(game);
+        return gamesRepository.save(game);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class GamesServiceImpl implements GamesService{
         gameDB.setDescripcion(game.getDescripcion());
         gameDB.setCategoria(game.getCategoria());
         gameDB.setPrecio(game.getPrecio());
-        return gamesRespository.save(gameDB);
+        return gamesRepository.save(gameDB);
     }
 
     @Override
@@ -50,12 +50,12 @@ public class GamesServiceImpl implements GamesService{
             return null;
         }
         gameDB.setEstado("DELETED");
-        return gamesRespository.save(gameDB);
+        return gamesRepository.save(gameDB);
     }
 
     @Override
     public List<Games> findByCategoria(Categorias categoria) {
-        return gamesRespository.findByCategoria(categoria);
+        return gamesRepository.findByCategoria(categoria);
     }
 
     @Override
@@ -66,6 +66,6 @@ public class GamesServiceImpl implements GamesService{
         }
         Double stock = gameDB.getCantidad() + cantidad;
         gameDB.setCantidad(stock);
-        return gamesRespository.save(gameDB);
+        return gamesRepository.save(gameDB);
     }
 }

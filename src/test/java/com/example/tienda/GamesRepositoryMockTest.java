@@ -2,7 +2,7 @@ package com.example.tienda;
 
 import com.example.tienda.entity.Categorias;
 import com.example.tienda.entity.Games;
-import com.example.tienda.repository.GamesRespository;
+import com.example.tienda.repository.GamesRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class GamesRepositoryMockTest {
     @Autowired
-    private GamesRespository gamesRespository;
+    private GamesRepository gamesRepository;
     @Test
     public void whenFindByCategoria_thenReturnListGames(){
         Games game01 = Games.builder()
@@ -26,9 +26,9 @@ public class GamesRepositoryMockTest {
                 .descripcion("Juego de mundo abierto")
                 .categoria(Categorias.builder().categoria_id(1L).build())
                 .build();
-        gamesRespository.save(game01);
+        gamesRepository.save(game01);
 
-        List<Games> founds = gamesRespository.findByCategoria(game01.getCategoria());
+        List<Games> founds = gamesRepository.findByCategoria(game01.getCategoria());
 
         Assertions.assertThat(founds.size()).isEqualTo(2);
     }
